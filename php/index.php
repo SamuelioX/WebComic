@@ -26,22 +26,29 @@ if (isset($_GET['num'])) {
         <div id="wrapper">
             <div id="comic">
                 <img src="imageView.php?num=<?php echo $data->getPostId() ?>"/>
+                <br>
             </div>
             <div id="lowernav">
                 <div class="nav">
-                    <a href="index.php" class="first" rel="start"></a>
+                    <a href="index.php?num=1" class="first" rel="start"></a>
                     <a href="index.php?num=<?php echo $data->getPrevPostId() ?>" class="prev" rel="prev"></a>
                     <a href="index.php?num=<?php echo $data->getNextPostId() ?>" class="next" rel="next"></a>
-                    <a href="index.php?num=1" class="last" rel="index"></a>
-                    <br></br>
+                    <a href="index.php" class="last" rel="index"></a>
+                    <br>
                 </div>
             </div>
-            <h3><?php echo $data->getPostTitle() ?></h3>
-            <footer> Copyright &copy; 2016 Samuel No<br>
-                    <!-- Formats the email footer -->
-                    <a href="mailto:samueliox@gmail.com">samueliox@gmail.com</a>
-            </footer>
+            <div id="title">
+                <h3><?php echo $data->getPostTitle() ?></h3>
+            </div>
+            <div id="text_body">
+                <?php echo $data->getPostBody() ?>
+            </div>
+
         </div>
+        <footer> Copyright &copy; 2016 Samuel No<br>
+                <!-- Formats the email footer -->
+                <a href="mailto:samueliox@gmail.com">samueliox@gmail.com</a>
+        </footer>
     </body>
 
 </html>
