@@ -5,37 +5,48 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema Webcomic
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema webcomic
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema Webcomic
+-- Schema webcomic
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `Webcomic` DEFAULT CHARACTER SET utf8 ;
-USE `Webcomic` ;
+CREATE SCHEMA IF NOT EXISTS `webcomic` DEFAULT CHARACTER SET utf8 ;
+USE `webcomic` ;
 
 -- -----------------------------------------------------
--- Table `Webcomic`.`posts`
+-- Table `webcomic`.`posts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Webcomic`.`posts` (
-  `postId` INT NOT NULL AUTO_INCREMENT,
-  `postBody` LONGTEXT NULL,
-  `postTitle` VARCHAR(255) NULL,
-  `postDate` DATE NULL,
-  `postImg` LONGBLOB NULL,
+DROP TABLE IF EXISTS `webcomic`.`posts` ;
+
+CREATE TABLE IF NOT EXISTS `webcomic`.`posts` (
+  `postId` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `postBody` TEXT NULL DEFAULT NULL,
+  `postTitle` TEXT NULL DEFAULT NULL,
+  `postDate` DATE,
+  `postImg` LONGBLOB NULL DEFAULT NULL,
   PRIMARY KEY (`postId`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `Webcomic`.`user`
+-- Table `webcomic`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Webcomic`.`user` (
-  `id` INT NOT NULL,
-  `usertype` INT NULL,
-  `username` VARCHAR(45) NULL,
+DROP TABLE IF EXISTS `webcomic`.`user` ;
+
+CREATE TABLE IF NOT EXISTS `webcomic`.`user` (
+  `id` INT(11) NOT NULL,
+  `usertype` INT(11) NULL DEFAULT NULL,
+  `username` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  AUTO_INCREMENT = 1
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
