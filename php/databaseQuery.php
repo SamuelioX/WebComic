@@ -64,6 +64,22 @@ class DatabaseQuery {
     function getPrevPostId(){
         return $this->postId-1;
     }
+    
+    function printNavigation($index){
+        if($index === 1){
+            echo "<a href='index.php?num=" . $this->getNextPostId() . "class='next' rel='next'></a>";
+            echo "<a href='index.php' class='last' rel='index'></a>";
+        } else if($index === $this->postId){
+            echo "<a href='index.php?num=1' class='first' rel='start'></a>";
+            echo "<a href='index.php?num=" . $this->getPrevPostId() . "class='prev' rel='prev'></a>";
+        } else {
+            echo "<a href='index.php?num=1' class='first' rel='start'></a>";
+            echo "<a href='index.php?num=" . $this->getPrevPostId() . "class='prev' rel='prev'></a>";
+            echo "<a href='index.php?num=" . $this->getNextPostId() . "class='next' rel='next'></a>";
+            echo "<a href='index.php' class='last' rel='index'></a>";
+        }
+
+    }
 }
 
 ?>

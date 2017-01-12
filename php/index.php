@@ -4,10 +4,11 @@ $index = 0;
 require_once( dirname(__FILE__) . '/databaseQuery.php' );
 
 if (isset($_GET['num'])) {
-    $data = new DatabaseQuery($_GET['num']);
+    $index = $_GET['num'];
+//    $data = new DatabaseQuery($index);
 } else {
     //index is set to the latest index
-    $data = new DatabaseQuery(0);
+    $data = new DatabaseQuery($index);
 }
 //query database based on index
 ?>
@@ -30,6 +31,7 @@ if (isset($_GET['num'])) {
             </div>
             <div id="lowernav">
                 <div class="nav">
+                    <!--<?php $data->printNavigation($index) ?>-->
                     <a href="index.php?num=1" class="first" rel="start"></a>
                     <a href="index.php?num=<?php echo $data->getPrevPostId() ?>" class="prev" rel="prev"></a>
                     <a href="index.php?num=<?php echo $data->getNextPostId() ?>" class="next" rel="next"></a>
@@ -37,13 +39,17 @@ if (isset($_GET['num'])) {
                     <br>
                 </div>
             </div>
+            
+
+        </div>
+        <br>
+        <div id ="notes">
             <div id="title">
                 <h3><?php echo $data->getPostTitle() ?></h3>
             </div>
             <div id="text_body">
                 <?php echo $data->getPostBody() ?>
             </div>
-
         </div>
         <footer> Copyright &copy; 2016 Samuel No<br>
                 <!-- Formats the email footer -->

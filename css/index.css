@@ -30,20 +30,34 @@ h1{margin-top: 0;
    font-size: 2.75em;
    text-align: center;
    text-shadow: 2px 2px 2px #000000;}
-
+h3{
+  margin-top: 10px;
+  font-size: 2.0em;
+}
 #wrapper {
+    display:table;
     background-color: #FFFFFF;
     margin-left: auto; 
     margin-right: auto; 
-    width: 80%;
+    /*width: 80%;*/
     color: #000066;
-    min-width: 980px;
-    max-width: 1080px;
-    padding-bottom: 20px;
+    min-width: 10px;
+    max-width:fit-content;
+    padding-left:100px;
+    padding-right:100px;
+    padding-bottom: 10px;
     border: 1px solid #000000;
-
 }
 
+#notes{
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-bottom: 20px;
+    
+    border: 1px solid #000000;
+}
 #lowernav {
     text-align:center;
     margin-top:9px;
@@ -54,13 +68,15 @@ h1{margin-top: 0;
 
 /* Wrapper id that formats the borders that I will be using */
 #comic {
-    position:relative;
+    margin-top: 10px;
+    position:initial;
     text-align:center;
-    margin-left: auto; 
+/*    margin-left: auto; 
     margin-right: auto; 
-    width: 80%;
-    min-width: 200px;
-    max-width: 600px;
+    width: 80%;*/
+/*    min-width: 200px;
+    max-width: 600px;*/
+/*border: 1px solid #000000;*/
 }
 
 #title{
