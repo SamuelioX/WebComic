@@ -21,7 +21,7 @@ class DatabaseQuery {
     }
     
     function getQueryTerms($searchTerm){
-        $this->postId = mysqli_real_escape_string($this->db, $searchTerm);
+        $this->postId = (int)mysqli_real_escape_string($this->db, $searchTerm);
         $this->postSearchTerm = mysqli_query($this->db, "SELECT * FROM posts WHERE postId = '$this->postId'");
         $this->postRow = mysqli_fetch_assoc($this->postSearchTerm);
         $this->postTitle = $this->postRow["postTitle"];
@@ -33,7 +33,7 @@ class DatabaseQuery {
     function getTotalPostCount() {
         $query = mysqli_real_escape_string($this->db, "SELECT COUNT(*) FROM posts");
         $maxRow = mysqli_query($this->db, $query);
-        $max = mysqli_fetch_assoc($maxRow)['COUNT(*)'];
+        $max = (int)mysqli_fetch_assoc($maxRow)['COUNT(*)'];
         return $max;
     }
 
@@ -65,17 +65,21 @@ class DatabaseQuery {
         return $this->postId-1;
     }
     
+    function convertDate(){
+        $this->postDate = date("F d, Y", strtotime($this->postDate));
+    }
+    
     function printNavigation($index){
         if($index === 1){
-            echo "<a href='index.php?num=" . $this->getNextPostId() . "class='next' rel='next'></a>";
+            echo "<a href='index.php?num=" . $this->getNextPostId() . "' class='next' rel='next'></a>";
             echo "<a href='index.php' class='last' rel='index'></a>";
-        } else if($index === $this->postId){
+        } else if($index === $this->getTotalPostCount()){
             echo "<a href='index.php?num=1' class='first' rel='start'></a>";
-            echo "<a href='index.php?num=" . $this->getPrevPostId() . "class='prev' rel='prev'></a>";
+            echo "<a href='index.php?num=" . $this->getPrevPostId() . "' class='prev' rel='prev'></a>";
         } else {
             echo "<a href='index.php?num=1' class='first' rel='start'></a>";
-            echo "<a href='index.php?num=" . $this->getPrevPostId() . "class='prev' rel='prev'></a>";
-            echo "<a href='index.php?num=" . $this->getNextPostId() . "class='next' rel='next'></a>";
+            echo "<a href='index.php?num=" . $this->getPrevPostId() . "' class='prev' rel='prev'></a>";
+            echo "<a href='index.php?num=" . $this->getNextPostId() . "' class='next' rel='next'></a>";
             echo "<a href='index.php' class='last' rel='index'></a>";
         }
 

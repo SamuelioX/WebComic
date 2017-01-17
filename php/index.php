@@ -6,10 +6,9 @@ require_once( dirname(__FILE__) . '/databaseQuery.php' );
 if (isset($_GET['num'])) {
     $index = $_GET['num'];
 //    $data = new DatabaseQuery($index);
-} else {
-    //index is set to the latest index
-    $data = new DatabaseQuery($index);
 }
+//index is set to the latest index
+$data = new DatabaseQuery($index);
 //query database based on index
 ?>
 
@@ -17,7 +16,7 @@ if (isset($_GET['num'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 
     <head>
-        <link rel="stylesheet" href="../css/index.css" media="screen"/>
+        <link rel="stylesheet" href="../css/index.css?reload"/>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <title>Nelsy</title>
     </head>
@@ -29,26 +28,27 @@ if (isset($_GET['num'])) {
                 <img src="imageView.php?num=<?php echo $data->getPostId() ?>"/>
                 <br>
             </div>
+
             <div id="lowernav">
                 <div class="nav">
-                    <!--<?php $data->printNavigation($index) ?>-->
-                    <a href="index.php?num=1" class="first" rel="start"></a>
-                    <a href="index.php?num=<?php echo $data->getPrevPostId() ?>" class="prev" rel="prev"></a>
-                    <a href="index.php?num=<?php echo $data->getNextPostId() ?>" class="next" rel="next"></a>
-                    <a href="index.php" class="last" rel="index"></a>
-                    <br>
+                    <?php $data->printNavigation($data->getPostId()) ?>
                 </div>
             </div>
-            
 
-        </div>
-        <br>
-        <div id ="notes">
-            <div id="title">
-                <h3><?php echo $data->getPostTitle() ?></h3>
-            </div>
-            <div id="text_body">
-                <?php echo $data->getPostBody() ?>
+
+            <!--</div>-->
+
+            <div id ="notes">
+                <div id="title">
+                    <h2><?php echo $data->getPostTitle() ?></h2>
+                </div>
+                <div id="date">
+                    <?php $data->convertDate() ?>
+                    <h3><?php echo $data->getPostDate() ?></h3>
+                </div>
+                <div id="text_body">
+                    <?php echo $data->getPostBody() ?>
+                </div>
             </div>
         </div>
         <footer> Copyright &copy; 2016 Samuel No<br>
