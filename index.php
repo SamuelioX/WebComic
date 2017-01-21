@@ -1,7 +1,7 @@
 ﻿<?php
 //include 'databaseQuery.php';
 $index = 0;
-require_once( dirname(__FILE__) . '/databaseQuery.php' );
+require_once( dirname(__FILE__) . '/php/databaseQuery.php' );
 
 if (isset($_GET['num'])) {
     $index = $_GET['num'];
@@ -16,7 +16,7 @@ $data = new DatabaseQuery($index);
 <html xmlns="http://www.w3.org/1999/xhtml">
 
     <head>
-        <link rel="stylesheet" href="../css/index.css?reload"/>
+        <link rel="stylesheet" href="css/index.css?reload"/>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <title>Nelsy</title>
     </head>
@@ -25,7 +25,7 @@ $data = new DatabaseQuery($index);
         <h1>WebComic</h1>
         <div id="wrapper">
             <div id="comic">
-                <img src="imageView.php?num=<?php echo $data->getPostId() ?>"/>
+                <img src="php/imageView.php?num=<?php echo $data->getPostId() ?>"/>
                 <br>
             </div>
 
