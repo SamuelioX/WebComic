@@ -22,8 +22,19 @@ $data = new DatabaseQuery($index);
     </head>
 
     <body>
-        <h1>WebComic</h1>
+        <header><h1>WebComic</h1></header>
         <div id="wrapper">
+            <div id="menu">
+                <div class="top_menu">
+                    <ul>
+                        <li><a href="http://www.whompcomic.com/comic/alligator-games"  rel="start">Home</a></li>
+                        <li><a href="http://www.whompcomic.com/comic/conspiracy-weary"  rel="prev">Archives</a></li>
+                        <li><a href="html/contact.html" rel="next">Contact</a></li>
+<!--                        <li><a href="http://www.whompcomic.com/comic/merry-christmas"  rel="index">Last</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            
             <div id="comic">
                 <img src="php/imageView.php?num=<?php echo $data->getPostId() ?>"/>
                 <br>
