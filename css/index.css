@@ -62,25 +62,37 @@ h3{
     font-size: 1.2em;
 }
 #wrapper {
-    display:table;
+    display: inline-block;
+}
+
+#leftside{
+    float: left;
+    width: 20%;
+}
+#rightside{
+    float: right;
+    width: 20%;
+}
+#content{
+    display: table;
+    text-align:center;
     background-color: #FFFFFF;
     margin-left: auto; 
     margin-right: auto; 
     /*width: 80%;*/
     color: #000066;
-    min-width: 10px;
+    min-width: 600px;
     max-width: 900px;
     /*    padding-left:100px;
         padding-right:100px;*/
     padding-bottom: 10px;
     border: 1px solid #000000;
 }
-
 #menu {
-/*    background-color: #FF00FF;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 0.7em;*/
+    /*    background-color: #FF00FF;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 0.7em;*/
 }
 #lowernav {
     text-align:center;
@@ -110,10 +122,15 @@ h3{
 #notes{
     padding-bottom: 20px;
     margin-left: 30px;
+    width:80%;
+}
+
+#bottomhalf {
+    padding-top: 10px;
 }
 
 #title{
-    padding-top: 100px;
+    /*padding-top: 100px;*/
     position:relative;
     text-align: left;
     /*margin-left: 30px;*/
@@ -122,11 +139,13 @@ h3{
 #date{
     /*margin-left: 30px;*/
     font-size: 0.7em;
+    text-align:left;
 }
 
 #text_body{
     /*    margin-top: 35px;
         margin-left: 30px;*/
+    text-align:left;
     margin: 30px 30px 30px 30px; 
 }
 
@@ -158,4 +177,23 @@ h3{
 }
 .nav a:hover{
     background-position:-44px 0px;
+}
+
+/* Formats a label element to have float */
+label {float: left;
+	 /*text-align: right;*/
+	 font-weight: bold;
+	 /*width: 8em;*/
+	 padding-right: 2px;}
+/* Formats the input element with a block display */
+input, textarea {display: block;
+	 margin-bottom: 1em;}
+
+textbody {
+    width:300px;
+    resize:none;
+    overflow:hidden;
+    font-size:18px;
+    height:1.1em;
+    padding:2px;
 }
